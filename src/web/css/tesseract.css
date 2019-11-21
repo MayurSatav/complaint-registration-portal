@@ -1,0 +1,138 @@
+body { background:#015477; }
+
+.block
+{
+  position: relatve;
+  width: 200px;
+  height: 200px;
+  margin: 5% auto;
+}
+
+.shape{
+  width: 100px;
+  height: 100px;
+}
+
+.cube{
+  position: relative;
+  transition:transform .5s;
+  transform-style: preserve-3d;
+}
+
+.cube.outer{
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  animation: spin 4s infinite cubic-bezier(.67,.03,.31,.98);
+}
+
+.cube.outer > .cube{
+  width: 100px;
+  height: 100px;
+  transform: translateX(50px) translateY(50px);
+  animation: spin-inner 4s infinite cubic-bezier(.67,.03,.31,.98);
+}
+
+.side{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /*backface-visibility: hidden;*/
+  
+  font-size: 30px;
+  line-height: 100px;
+  text-align: center;
+  opacity: .9;
+  transition: all .2s linear;
+  border: 5px solid #FE9800;
+  
+  
+  box-shadow: inset 0 0 100% 0 ;
+  box-sizing: border-box;
+}
+
+.outer > .cube .side {  
+  background: rgb(255, 255, 255);
+
+}
+
+.side.left{
+  transform: translateX(-50px) rotateY(-90deg);  
+}
+
+.cube.outer > .side.left{
+  transform: translateX(-100px) rotateY(-90deg);  
+}
+
+.side.right{
+  transform: translateX(50px) rotateY(90deg);  
+}
+
+.cube.outer > .side.right{
+  transform: translateX(100px) rotateY(90deg);  
+}
+
+.side.top{ 
+  transform: translateY(-50px) rotateX(90deg);  
+}
+
+.cube.outer > .side.top{
+  transform: translateY(-100px) rotateX(90deg);  
+}
+
+.side.bottom{ 
+  transform: translateY(50px) rotateX(-90deg);  
+}
+
+.cube.outer > .side.bottom{
+  transform: translateY(100px) rotateX(-90deg);  
+}
+
+.side.front{
+  transform: translateZ(50px); 
+}
+
+.cube.outer > .side.front{
+  transform: translateZ(100px);  
+}
+
+.side.back{  
+  transform: translateZ(-50px) rotateX(180deg);
+}
+
+.cube.outer > .side.back{
+  transform: translateZ(-100px) rotateX(180deg); 
+}
+
+
+
+
+@keyframes spin {  
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  33.333% {
+    transform: rotateX(-35deg) rotateY(-45deg);
+  }
+  66.666% {
+    transform: rotateX(-35deg) rotateY(45deg);
+  }  
+  100% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+}
+
+@keyframes spin-inner {
+  0% {
+    transform: translateX(50px) translateY(50px) rotateY(0deg) rotateX(90deg);
+  }
+  33.333% {
+    transform: translateX(50px) translateY(50px) rotateY(90deg) rotateX(90deg);
+  }
+  66.666% {
+    transform: translateX(50px) translateY(50px) rotateY(-90deg) rotateX(90deg);
+  }
+  100% {
+    transform: translateX(50px) translateY(50px) rotateY(0deg) rotateX(90deg);
+  }
+}
