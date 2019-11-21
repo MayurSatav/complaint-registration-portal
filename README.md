@@ -2,47 +2,42 @@
 
 This is Advanced Java project for Complaint Registration at college level it will help students and all the related stakeholders.
 
-**Activity Flow**
+**Technology/Softwares used**
+1. NetBeans IDE v8.2
+2. MySql Server version: 8.0.18
+3. mysql-connector-java-5.1.48
+4. HTML5
+5. CSS3
+6. Javascript
 
-Non Registered 
+**Database Tables**
+1. Post
+   ```
+   CREATE TABLE post (
+   uid int(11) NOT NULL AUTO_INCREMENT,
+   title varchar(255) DEFAULT NULL,
+   deptName varchar(255) DEFAULT NULL,
+   facultyName varchar(255) DEFAULT NULL,
+   description varchar(500) DEFAULT NULL,
+   uname varchar(255) DEFAULT NULL,
+   anonymous int(11) DEFAULT NULL,
+   PRIMARY KEY (uid),
+   KEY uname (uname),
+   CONSTRAINT post_ibfk_1 FOREIGN KEY (uname) REFERENCES user (uname));```
 
-Admin
-1.  login/signup
-2.  Add College
-3.  Add College Information
-
-User
-1.  login/signup
-2.  Select College
-3.  Add user information
-
-After Registration
-
-Admin
-1.  Verify Students
-2.  Check Complaints
-3.  Take action
-
-User
-1.  Filed Complaints
-2.  Check Complaints
-3.  Check Status
+2. User
+   ```
+   CREATE TABLE user (
+   name varchar(255) NOT NULL,
+   email varchar(255) NOT NULL,
+   uname varchar(255) NOT NULL,
+   password varchar(255) DEFAULT NULL,
+   admin int(11) DEFAULT '0',
+   PRIMARY KEY (uname))```
 
 **Implementation plan**
 
-
 1.  Developers
-    *  Frontend - Mayur S
-    *  Database - Akanksha
-    *  Backend  - Mayur M
-    
-2.  Guide Meetings
-    
-    *  28-09-2019 
-    *  5-10-2019
-    *  12-10-2019
-    *  19-10-2019
-3. Review
-    *  1st Project Review - 05-11-2019 - Amit Sonawane Sir
-    *  2nd Project Review - 
-    *  3rd Project Review - 
+    *  Frontend + Backend - Mayur Satav
+    *  Database + Backend - Mayur Masram
+    *  Database + Documentation  - Akanksha
